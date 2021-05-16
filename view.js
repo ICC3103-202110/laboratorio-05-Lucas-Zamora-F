@@ -29,7 +29,53 @@ function getTable(model){
     ]
 }
 
+function input1(model){
 
+    const message = 'Bill Amount?'
+    return inquirer.prompt([
+        {
+            name: 'input',
+            type: 'input',
+            message: message,
+
+            validate: function(value){
+                if(value > 0 ){
+                    return true
+                } else {
+                    return 'Enter a valid number'
+                }
+            }
+                
+    
+        }
+    ])
+}
+
+function input2(model){
+
+    const message = 'tip(%)?'
+    return inquirer.prompt([
+        {
+            name: 'input',
+            type: 'input',
+            message: message,
+
+            validate: function(value){
+                if(value >= 0 ){
+                    if (value <=100){
+                        return true
+                    } else {
+                        return 'Enter a valid number'
+                    }
+                }
+                 else {
+                    return 'Enter a valid number'
+                }
+            }
+  
+        }
+    ])
+}
 
 
 // Get actual console view
@@ -42,5 +88,7 @@ function view(model){
 
 module.exports = {
     view, 
+    input1,
+    input2,
 
 }
