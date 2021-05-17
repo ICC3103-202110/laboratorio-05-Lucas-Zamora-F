@@ -30,13 +30,15 @@ function getTable(model){
 }
 
 function input1(model){
+    const {billAmount} = model
 
     const message = 'Bill Amount?'
     return inquirer.prompt([
         {
-            name: 'input',
-            type: 'input',
+            name: 'billAmount',
+            type: 'billAmount',
             message: message,
+            default: billAmount,
 
             validate: function(value){
                 if(value > 0 ){
@@ -52,13 +54,15 @@ function input1(model){
 }
 
 function input2(model){
+    const {tipp} = model
 
     const message = 'tip(%)?'
     return inquirer.prompt([
         {
-            name: 'input',
-            type: 'input',
+            name: 'tipp',
+            type: 'tipp',
             message: message,
+            default: tipp,
 
             validate: function(value){
                 if(value >= 0 ){

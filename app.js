@@ -11,10 +11,10 @@ async function app(state, update, view){
         console.log(title)
         printTable(table)
 
-        const a = {input} = await input1(model)
-        const b = {input} = await input2(model)
+        const {billAmount} = await input1(model)
+        const {tipp} = await input2(model)
         
-        const updatedModel = update(a, b, model)
+        const updatedModel = update(billAmount, tipp, model)
         state = {
             ...state,
             model: updatedModel,
